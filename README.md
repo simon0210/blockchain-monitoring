@@ -1,4 +1,4 @@
-[Blockchain Monitoring](http://blockchain-monitoring.org)
+[Blockchain Monitoring](https://blockchain-monitoring.org)
 ================
 ## version '1.3-1.0.0-alpha2'
 
@@ -10,8 +10,8 @@
 It provides convenient and demonstrative way to represent information
 about blockchain fabric network activities.
 
-![demo](http://blockchain-monitoring.org/images/demo.png)
-![demo](http://blockchain-monitoring.org/images/dashboard-performance.png)
+![demo](https://blockchain-monitoring.org/images/demo.png)
+![demo](https://blockchain-monitoring.org/images/dashboard-performance.png)
 
 # About
 Project consists of Grafana, Influx DB and "Blockchain Monitoring" as own, which collects and aggregates telemetry from Fabric.
@@ -138,11 +138,13 @@ Visit [link](https://github.com/blockchain-monitoring/blockchain-monitoring-api)
 For example, I set if we get invoke or query send me email notification and attach graph of metrics
 
 ## Crash reports
-If you want to share crash information with blockchain monitoring owners, please add following env variables:
-
-`REPORTS_ENABLED=true`
+Crash reports feature is **enabled** by default. Also you can add your contact email for us by env variabale:
 
 `USER_EMAIL=<your contact email>`
+
+If you don't want to share crash information with blockchain-monitoring owners, please add following env variable:
+
+`REPORTS_DISABLED=true`
 
 Following information will be send:
 * user email
@@ -153,6 +155,6 @@ Following information will be send:
 * exception message
 
 ### Invoke
-![demo](http://blockchain-monitoring.org/images/invoke-alert.png)
+![demo](https://blockchain-monitoring.org/images/invoke-alert.png)
 ### Query
-![demo](http://blockchain-monitoring.org/images/query-alert.png)
+![demo](https://blockchain-monitoring.org/images/query-alert.png)
