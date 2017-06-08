@@ -121,7 +121,7 @@ public class MonitoringConfiguration {
     }
 
     private void orgPreferences() throws IOException {
-        log.info("start init grafana datasources");
+        log.info("start init grafana orgPreferences");
         final File orgPreferencesTemplate = new File(monitoringParams.getOrgPreferencesGrafana());
         final OrgPreferences orgPreferences = mapper.readValue(orgPreferencesTemplate, OrgPreferences.class);
 
@@ -134,11 +134,11 @@ public class MonitoringConfiguration {
 
         final String orgPreferencesURL = monitoringParams.getUrlGrafana() + "/api/org/preferences";
         restTemplate.postForObject(orgPreferencesURL, request, String.class);
-        log.info("finish init grafana OrgPreferences");
+        log.info("finish init grafana orgPreferences");
     }
 
     private void initDatasources() throws IOException {
-        log.info("start init grafana datasources");
+        log.info("start init grafana initDatasources");
         final File datasourcesTemplate = new File(monitoringParams.getDatasourcesGrafana());
         final Datasource datasource = mapper.readValue(datasourcesTemplate, Datasource.class);
 
@@ -151,11 +151,11 @@ public class MonitoringConfiguration {
 
         final String datasourcesURL = monitoringParams.getUrlGrafana() + "/api/datasources";
         restTemplate.postForObject(datasourcesURL, request, String.class);
-        log.info("finish init grafana datasources");
+        log.info("finish init grafana initDatasources");
     }
 
     private void initDashboards() throws IOException {
-        log.info("start init grafana dashboards");
+        log.info("start init grafana initDashboards");
         final File datasourcesTemplate = new File(monitoringParams.getDashboardsGrafana());
         final Dashboard dashboard = mapper.readValue(datasourcesTemplate, Dashboard.class);
 
@@ -193,7 +193,7 @@ public class MonitoringConfiguration {
 
         final String dashboardsURL = monitoringParams.getUrlGrafana() + "/api/dashboards/db";
         restTemplate.postForObject(dashboardsURL, request, String.class);
-        log.info("finish init grafana dashboards");
+        log.info("finish init grafana initDashboards");
     }
 
     private void initEventHandlers() {
