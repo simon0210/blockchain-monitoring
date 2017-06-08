@@ -73,6 +73,7 @@ public class MonitoringDB {
             final Point point = builder.build();
             updatePeerInfo(peerInfo.getName(), peerInfo.getStatus(), tags, point);
         } catch (Exception e) {
+            e.printStackTrace();
             log.error(e.getMessage(), e);
         }
     }

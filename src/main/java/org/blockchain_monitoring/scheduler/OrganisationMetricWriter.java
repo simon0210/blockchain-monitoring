@@ -48,6 +48,7 @@ public class OrganisationMetricWriter implements Consumer<FlyNet.Organization> {
                 channelList.addAll(flyClient.queryChannels(peer));
                 status = PeerStatus.UP;
             } catch (Exception e) {
+                log.info("PeerInfo: Peer [" + peer.getName() + "] is down");
                 status = PeerStatus.DOWN;
             }
 
