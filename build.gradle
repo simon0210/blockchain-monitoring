@@ -1,5 +1,5 @@
 group 'org.blockchain_monitoring'
-version '1.1-SNAPSHOT'
+version '1.5-1.0.0-alpha2'
 
 buildscript {
     repositories {
