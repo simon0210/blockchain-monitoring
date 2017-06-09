@@ -81,7 +81,7 @@ public class GrafanaConfig {
     }
 
     private void orgPreferences() throws IOException {
-        log.info("start init grafana datasources");
+        log.info("start init grafana OrgPreferences");
         final File orgPreferencesTemplate = new File(monitoringParams.getOrgPreferencesGrafana());
         final OrgPreferences orgPreferences = mapper.readValue(orgPreferencesTemplate, OrgPreferences.class);
 
