@@ -4,4 +4,4 @@ cd /
 
 ./init_grafana.sh &
 ./init_influx.sh &
-java -jar blockchain-monitoring.jar
+java -Xdebug -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n -jar blockchain-monitoring.jar
