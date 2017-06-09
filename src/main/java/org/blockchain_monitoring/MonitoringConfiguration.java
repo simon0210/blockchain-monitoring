@@ -10,8 +10,6 @@ import javax.annotation.PostConstruct;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.blockchain_monitoring.api.InfluxSearcher;
 import org.blockchain_monitoring.api.InfluxWriter;
@@ -28,18 +26,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import sun.security.x509.X500Name;
 
-import javax.annotation.PostConstruct;
-import javax.security.cert.CertificateException;
-import javax.security.cert.X509Certificate;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
-// TODO CHANGE TO @Configuration GrafanaConfiguration, InfluxConfiguration
 @Component
 public class MonitoringConfiguration {
 
