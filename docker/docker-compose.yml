@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  monitoring:
+  blockchain-monitoring:
     container_name: blockchain-monitoring
     image: blockchainmonitoring/blockchain-monitoring:latest
     volumes:
@@ -19,6 +19,7 @@ services:
     ports:
       - "3000:3000"
       - "8086:8086"
+      - "5005:5005" #debug port
     networks:
       dev_net:
         ipv4_address: 172.25.0.135
