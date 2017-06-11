@@ -1,4 +1,7 @@
 group 'org.blockchain_monitoring'
+version = '0.1.0'
+import java.util.regex.Pattern
+group 'org.blockchain_monitoring'
 version '1.6-1.0.0-alpha2'
 
 buildscript {
@@ -85,5 +88,51 @@ uploadArchives {
             }
         }
     }
+}
+
+task incrementPointNumberInVersionName << {
+    println(":incrementVersionName - Incrementing Poin Version ...")
+    def buildFile = file("build.gradle")
+    def patternVersionNumber = Pattern.compile("version = '(\\d+)\\.(\\d+)\\.(\\d+)'")
+    def buildScript = buildFile.getText()
+    def matcherVersionNumber = patternVersionNumber.matcher(buildScript)
+    matcherVersionNumber.find()
+    def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
+    def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
+    def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
+    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion
+    def mNextVersionName = majorVersion + "." + minorVersion + "." + (pointVersion + 1)
+    def content = matcherVersionNumber.replaceAll("version = \'" + mNextVersionName + "\'")
+    println(":incrementVersionName - new versionName=" + mNextVersionName);
+    buildFile.write(content)
+}
+
+task incrementMinorNumberInVersionName << {
+    println(":incrementVersionName - Incrementing Minor Version ...")
+    def buildFile = file("build.gradle")
+    def patternVersionNumber = Pattern.compile("version = '(\\d+)\\.(\\d+)\\.(\\d+)'")
+    def buildScript = buildFile.getText()
+    def matcherVersionNumber = patternVersionNumber.matcher(buildScript)
+    matcherVersionNumber.find()
+    def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
+    def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
+    def mNextVersionName = majorVersion + "." + (minorVersion + 1) + ".0"
+    def content = matcherVersionNumber.replaceAll("version = \'" + mNextVersionName + "\'")
+    println(":incrementVersionName - new versionName=" + mNextVersionName);
+    buildFile.write(content)
+}
+
+task incrementMajorNumberInVersionName << {
+    println(":incrementVersionName - Incrementing Major Version ...")
+    def buildFile = file("build.gradle")
+    def patternVersionNumber = Pattern.compile("version = '(\\d+)\\.(\\d+)\\.(\\d+)'")
+    def buildScript = buildFile.getText()
+    def matcherVersionNumber = patternVersionNumber.matcher(buildScript)
+    matcherVersionNumber.find()
+    def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
+    def mNextVersionName = (majorVersion + 1) + ".0.0"
+    def content = matcherVersionNumber.replaceAll("version = \'" + mNextVersionName + "\'")
+    println(":incrementVersionName - new versionName=" + mNextVersionName);
+    buildFile.write(content)
 }
 
