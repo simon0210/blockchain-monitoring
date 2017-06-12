@@ -1,6 +1,6 @@
 import java.util.regex.Pattern
 group 'org.blockchain_monitoring'
-version = '0.1.0'
+version = '2.0.0'
 
 buildscript {
     repositories {
