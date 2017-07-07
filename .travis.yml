@@ -5,6 +5,9 @@ branches:
   only:
   - master
 
+before_script:
+- "gradle incrementPointNumberInVersionName"
+
 # to make gradle build faster
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -17,4 +20,14 @@ cache:
 jdk:
   - oraclejdk8
 after_success:
+# commit and push autoincrement version
+  - git config --global user.email "builds@blockchain-monitoring.org"
+  - git config --global user.name "Travis CI"
+  - git config --global push.default simple
+  - git remote rm origin
+  - git remote add origin https://${TRAVIS_REPO_SLUG%%/*}:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG.git
+  - git add build.gradle
+  - git commit -m "Travis changes [skip ci]"
+  - git push origin HEAD:master
+  
   - "gradle uploadArchives"
