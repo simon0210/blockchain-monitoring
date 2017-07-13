@@ -1,7 +1,17 @@
 package org.blockchain_monitoring.scheduler;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Consumer;
+
 import org.blockchain_monitoring.fly_client.FlyClient;
+import org.blockchain_monitoring.fly_client_spring.FlyConfigService;
 import org.blockchain_monitoring.fly_client_spring.FlyNet;
+import org.blockchain_monitoring.fly_client_spring.model.config.Admin;
 import org.blockchain_monitoring.model.PeerInfo;
 import org.blockchain_monitoring.model.PeerStatus;
 import org.blockchain_monitoring.service.MonitoringDB;
@@ -12,13 +22,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.function.Consumer;
-
 @Component
 public class OrganisationMetricWriter implements Consumer<FlyNet.Organization> {
 
@@ -27,9 +30,13 @@ public class OrganisationMetricWriter implements Consumer<FlyNet.Organization> {
     @Autowired
     public MonitoringDB monitoringDB;
 
+    @Autowired
+    public FlyConfigService flyConfigService;
+
     @Override
     public void accept(final FlyNet.Organization organization) {
         for (Peer peer : organization.getPeers()) {
+
             Optional<PeerInfo> peerInfo = getPeerInfo(peer, organization.getFlyClient());
             if (peerInfo.isPresent()) {
                 monitoringDB.writePeerInfo(peerInfo.get());
@@ -44,8 +51,12 @@ public class OrganisationMetricWriter implements Consumer<FlyNet.Organization> {
 
             PeerStatus status;
             try {
-                chaincodInfoList.addAll(flyClient.queryInstalledChaincodes(peer));
-                channelList.addAll(flyClient.queryChannels(peer));
+                final Admin admin = flyConfigService.getAdmin(peer.getName());
+
+                final Collection<Query.ChaincodeInfo> installedChaincodes = flyClient.queryInstalledChaincodes(admin.getLogin(), peer);
+                chaincodInfoList.addAll(installedChaincodes);
+                final Set<String> channels = flyClient.queryChannels(peer);
+                channelList.addAll(channels);
                 status = PeerStatus.UP;
             } catch (Exception e) {
                 log.info("PeerInfo: Peer [" + peer.getName() + "] is down");

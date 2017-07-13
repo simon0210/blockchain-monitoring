@@ -43,6 +43,11 @@ public class GrafanaConfig {
     @Autowired
     public GrafanaConfig(MonitoringParams monitoringParams, FlyNet flyNet) {
         this.monitoringParams = monitoringParams;
+        try {
+            flyNet.initConfig();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.flyNet = flyNet;
     }
 
