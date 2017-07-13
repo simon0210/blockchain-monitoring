@@ -9,6 +9,7 @@ services:
     container_name: blockchain-monitoring
     image: blockchainmonitoring/blockchain-monitoring:latest
     volumes:
+      - $CERTS_ADMIN:/opt/finline/certs/admin/:rw
       - $FABRIC_NET_CONFIG:/etc/conf/net-config.yaml
 #      if you want customize configuration grafana or influxdb
 #      - ./influxdb.conf:/etc/influxdb/influxdb.conf
@@ -19,7 +20,7 @@ services:
     ports:
       - "3000:3000"
       - "8086:8086"
-      - "5005:5005" #debug port
+      - "5006:5005" #debug port
     networks:
       dev_net:
         ipv4_address: 172.25.0.135
