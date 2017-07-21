@@ -3,15 +3,12 @@ package org.blockchain_monitoring.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.blockchain_monitoring.api.InfluxDestroyer;
 import org.blockchain_monitoring.api.InfluxDestroyerException;
 import org.blockchain_monitoring.api.InfluxSearcher;
 import org.blockchain_monitoring.api.InfluxWriter;
 import org.blockchain_monitoring.model.PeerInfo;
-import org.blockchain_monitoring.model.PeerStatus;
-import org.hyperledger.fabric.protos.peer.Query;
 import org.influxdb.dto.Point;
 import org.influxdb.dto.QueryResult;
 import org.slf4j.Logger;
@@ -41,47 +38,49 @@ public class MonitoringDB {
     // contract TAG name != FIELD name
     private static final String TAG_PEER = "TAG_PEER";
     private static final String TAG_STATUS = "TAG_STATUS";
+    private static final String TAG_CHANNEL = "TAG_TAG_CHANNEL";
+    private static final String TAG_CHAINCODE = "TAG_CHAINCODE";
 
     public void writePeerInfo(PeerInfo peerInfo) {
+        log.debug("MonitoringDB.writePeerInfo");
         try {
-
-            log.debug("MonitoringDB.writePeerInfo");
             if (peerInfo.getName() == null || peerInfo.getName().isEmpty() || peerInfo.getStatus() == null) {
                 throw new IllegalArgumentException("peerId and peerStatus can't be null");
             }
-            log.debug("peerId = [" + peerInfo.getName() + "], chaincodInfoList = [" + peerInfo.getChaincodInfoList() + "], channelList = [" + peerInfo.getChannelList() + "], peerStatus = [" + peerInfo.getStatus() + "]");
-
-            final HashMap<String, String> tags = new HashMap<String, String>() {{
-                put(TAG_PEER, peerInfo.getName());
-                put(TAG_STATUS, peerInfo.getStatus().name());
-            }};
+            log.debug("peerId = [" + peerInfo.getName() + "]," +
+                    " chaincodeInfoList = [" + peerInfo.getChaincodes() + "]," +
+                    " channelList = [" + peerInfo.getChannels() + "]," +
+                    " peerStatus = [" + peerInfo.getStatus() + "]");
 
             final Point.Builder builder = Point.measurement(peerInfo.getName())
                     .addField(FIELD_STATUS, peerInfo.getStatus().ordinal());
 
+            final HashMap<String, String> tags = new HashMap<String, String>() {{
+                put(TAG_PEER, peerInfo.getName());
+                put(TAG_STATUS, peerInfo.getStatus().name());
+                put(TAG_CHANNEL, peerInfo.getChannels());
+                put(TAG_CHAINCODE, peerInfo.getChaincodes());
+            }};
+
             tags.entrySet().forEach(tag -> builder.tag(tag.getKey(), tag.getValue()));
 
-            if (peerInfo.getChaincodInfoList() != null) {
-                final List<String> chancodeNameList = peerInfo.getChaincodInfoList().stream().map(Query.ChaincodeInfo::getName)
-                        .collect(Collectors.toList());
-                final String chaincodes = chancodeNameList.toString();
-                builder.addField(FIELD_CHAINCODE, chaincodes.substring(1, chaincodes.length() - 1));
-                final String channels = peerInfo.getChannelList().toString();
-                builder.addField(FIELD_CHANNEL, channels.substring(1, channels.length() - 1));
-            }
+            builder.addField(FIELD_CHAINCODE, peerInfo.getChaincodes());
+            builder.addField(FIELD_CHANNEL, peerInfo.getChannels());
 
             final Point point = builder.build();
-            updatePeerInfo(peerInfo.getName(), peerInfo.getStatus(), tags, point);
+            updatePeerInfo(peerInfo.getName(), peerInfo, point);
         } catch (Exception e) {
             e.printStackTrace();
             log.error(e.getMessage(), e);
         }
     }
 
-    private void updatePeerInfo(String peerId, PeerStatus peerStatus, HashMap<String, String> tags, Point point) {
-        if (isNotExistsByPeerIdAndStatus(peerId, peerStatus.name())) {
+    private void updatePeerInfo(String peerId, PeerInfo peerInfo, Point point) {
+        if (isNotExistsByPeerInfo(peerId, peerInfo)) {
             try {
-                tags.replace(TAG_STATUS, peerStatus.name(), peerStatus.getOtherStatus().name());
+                final HashMap<String, String> tags = new HashMap<String, String>() {{
+                    put(TAG_PEER, peerInfo.getName());
+                }};
                 influxDestroyer.deleteMeasurementByTags(peerId, tags);
             } catch (InfluxDestroyerException e) {
                 e.printStackTrace();
@@ -95,12 +94,19 @@ public class MonitoringDB {
      * Проверяем существуют ли значения в БД по peerId и status
      *
      * @param peerId - measurement
-     * @param status - tag
+     * @param peerInfo - information about peer: status, chaincodeList, channelList
      * @return true - exists, false - not found
      */
-    private boolean isNotExistsByPeerIdAndStatus(final String peerId, final String status) {
+    private boolean isNotExistsByPeerInfo(final String peerId, final PeerInfo peerInfo) {
+
         final Optional<QueryResult> queryOptional = influxSearcher
-                .query("SELECT status FROM \"" + peerId + "\" WHERE \"" + TAG_STATUS + "\" = '" + status + "'");
+                .query("SELECT status FROM \"" + peerId +
+                        "\" WHERE " +
+                        "\"" + TAG_STATUS + "\" = '" + peerInfo.getStatus().name() + "' AND " +
+                        "\"" + TAG_CHAINCODE + "\" = '" + peerInfo.getChaincodes() + "' AND " +
+                        "\"" + TAG_PEER + "\" = '" + peerInfo.getName() +  "' AND " +
+                        "\"" + TAG_CHANNEL + "\" = '" + peerInfo.getChannels() +         "' "
+                );
 
         if(queryOptional.isPresent()) {
             QueryResult query = queryOptional.get();

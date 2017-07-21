@@ -40,7 +40,7 @@ dependencies {
     compile "org.springframework:spring-websocket:${springVersion}"
     compile "org.influxdb:influxdb-java:2.5"
     compile "commons-logging:commons-logging:1.2"
-    compile "org.blockchain_monitoring:blockchain-monitoring-api:2.0.1"
+    compile "org.blockchain_monitoring:blockchain-monitoring-api:2.0.3"
     compile "org.blockchain_monitoring:fly-client-spring:2.0.20"
     compile "org.blockchain_monitoring:fly-client:2.0.25"
 }
