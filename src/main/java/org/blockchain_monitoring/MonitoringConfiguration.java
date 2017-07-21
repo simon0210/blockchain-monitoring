@@ -1,6 +1,8 @@
 package org.blockchain_monitoring;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -11,6 +13,8 @@ import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import org.blockchain_monitoring.api.InfluxDestroyer;
+import org.blockchain_monitoring.api.InfluxDestroyerException;
 import org.blockchain_monitoring.api.InfluxSearcher;
 import org.blockchain_monitoring.api.InfluxWriter;
 import org.blockchain_monitoring.fly_client_spring.event.EventsProcessor;
@@ -23,6 +27,7 @@ import org.influxdb.dto.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import sun.security.x509.X500Name;
 
@@ -40,22 +45,32 @@ public class MonitoringConfiguration {
     private static final String COMMON_BLOCK_EVENT_MEASUREMENT = "commonBlockEvent";
 
     private final InfluxWriter influxWriter;
+    private final InfluxDestroyer influxDestroyer;
 
     private final InfluxSearcher influxSearcher;
 
     private final EventsProcessor eventsProcessor;
 
+
+    @Value("${TIME_EVENT_LIFETIME:00:01:00}")
+    private String envTimeEventLifetime;
+
+    private LocalTime timeEventLifetime;
+
     @Autowired
-    public MonitoringConfiguration(InfluxWriter influxWriter, InfluxSearcher influxSearcher, EventsProcessor eventsProcessor) {
+    public MonitoringConfiguration(InfluxWriter influxWriter, InfluxSearcher influxSearcher, EventsProcessor eventsProcessor, InfluxDestroyer influxDestroyer) {
         this.influxSearcher = influxSearcher;
         this.influxWriter = influxWriter;
         this.eventsProcessor = eventsProcessor;
+        this.influxDestroyer = influxDestroyer;
     }
 
     @PostConstruct
     public void init() {
         initInflux();
         initEventHandlers();
+        // be careful that @Value init only after @PostConstruct not in Constructor
+        timeEventLifetime = LocalTime.parse(envTimeEventLifetime);
     }
 
     private void initInflux() {
@@ -100,6 +115,13 @@ public class MonitoringConfiguration {
             }
 
             final String transactionID = blockEvent.getTransactionEvents().iterator().next().getTransactionID();
+
+            try {
+                final LocalDateTime localDateTime = LocalDateTime.now().minusSeconds(timeEventLifetime.toSecondOfDay());
+                influxDestroyer.deleteMeasurementOlderTime(blockEvent.getEventHub().getName(), localDateTime);
+            } catch (InfluxDestroyerException e) {
+                log.error(e.getMessage(), e);
+            }
 
             writeCommonBlockEvent(blockEvent, validationCode, endorsementsList, transactionID);
             writeBlockEvent(blockEvent, validationCode, endorsementsList, transactionID);
