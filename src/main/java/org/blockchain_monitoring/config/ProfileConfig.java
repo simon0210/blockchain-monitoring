@@ -32,7 +32,7 @@ public class ProfileConfig {
         final String passwordInfluxDB = getProperty("influxDB.password");
 
         final MonitoringParams monitoringParams = new MonitoringParams(configPath, urlInfluxDB, urlGrafana, dashboardsGrafana, datasourcesGrafana, usernameInfluxDB, passwordInfluxDB, orgPreferencesGrafana);
-        log.info(monitoringParams.toString());
+        log.debug(monitoringParams.toString());
         return monitoringParams;
     }
 

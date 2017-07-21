@@ -46,7 +46,7 @@ public class OrganisationMetricWriter implements Consumer<FlyNet.Organization> {
 
     private Optional<PeerInfo> getPeerInfo(final Peer peer, FlyClient flyClient) {
         try {
-            final List<Query.ChaincodeInfo> chaincodInfoList = new ArrayList<>();
+            final List<Query.ChaincodeInfo> chaincodeInfoList = new ArrayList<>();
             final Set<String> channelList = new HashSet<>();
 
             PeerStatus status;
@@ -54,16 +54,16 @@ public class OrganisationMetricWriter implements Consumer<FlyNet.Organization> {
                 final Admin admin = flyConfigService.getAdmin(peer.getName());
 
                 final Collection<Query.ChaincodeInfo> installedChaincodes = flyClient.queryInstalledChaincodes(admin.getLogin(), peer);
-                chaincodInfoList.addAll(installedChaincodes);
+                chaincodeInfoList.addAll(installedChaincodes);
                 final Set<String> channels = flyClient.queryChannels(peer);
                 channelList.addAll(channels);
                 status = PeerStatus.UP;
             } catch (Exception e) {
-                log.info("PeerInfo: Peer [" + peer.getName() + "] is down");
+                log.error("PeerInfo: Peer [" + peer.getName() + "] is down");
                 status = PeerStatus.DOWN;
             }
 
-            return Optional.of(PeerInfo.of(peer.getName(), chaincodInfoList, channelList, status));
+            return Optional.of(PeerInfo.of(peer.getName(), chaincodeInfoList, channelList, status));
         } catch (Exception e) {
             log.error(e.getMessage(), e);
             return Optional.empty();

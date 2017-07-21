@@ -86,7 +86,7 @@ public class GrafanaConfig {
     }
 
     private void orgPreferences() throws IOException {
-        log.info("start init grafana OrgPreferences");
+        log.debug("start init grafana OrgPreferences");
         final File orgPreferencesTemplate = new File(monitoringParams.getOrgPreferencesGrafana());
         final OrgPreferences orgPreferences = mapper.readValue(orgPreferencesTemplate, OrgPreferences.class);
 
@@ -99,11 +99,11 @@ public class GrafanaConfig {
 
         final String orgPreferencesURL = monitoringParams.getUrlGrafana() + "/api/org/preferences";
         restTemplate.postForObject(orgPreferencesURL, request, String.class);
-        log.info("finish init grafana OrgPreferences");
+        log.debug("finish init grafana OrgPreferences");
     }
 
     private void initDatasources() throws IOException {
-        log.info("start init grafana datasources");
+        log.debug("start init grafana datasources");
         final File datasourcesTemplate = new File(monitoringParams.getDatasourcesGrafana());
         final Datasource datasource = mapper.readValue(datasourcesTemplate, Datasource.class);
 
@@ -116,11 +116,11 @@ public class GrafanaConfig {
 
         final String datasourcesURL = monitoringParams.getUrlGrafana() + "/api/datasources";
         restTemplate.postForObject(datasourcesURL, request, String.class);
-        log.info("finish init grafana datasources");
+        log.debug("finish init grafana datasources");
     }
 
     private void initDashboards() throws IOException {
-        log.info("start init grafana dashboards");
+        log.debug("start init grafana dashboards");
         final File datasourcesTemplate = new File(monitoringParams.getDashboardsGrafana());
         final Dashboard dashboard = mapper.readValue(datasourcesTemplate, Dashboard.class);
 
@@ -158,7 +158,7 @@ public class GrafanaConfig {
 
         final String dashboardsURL = monitoringParams.getUrlGrafana() + "/api/dashboards/db";
         restTemplate.postForObject(dashboardsURL, request, String.class);
-        log.info("finish init grafana dashboards");
+        log.debug("finish init grafana dashboards");
     }
 
     private void fillStatusRow(Row row, List<Peer> allPeers) throws CloneNotSupportedException {

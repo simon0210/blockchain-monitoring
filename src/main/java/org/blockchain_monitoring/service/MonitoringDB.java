@@ -1,5 +1,10 @@
 package org.blockchain_monitoring.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.blockchain_monitoring.api.InfluxDestroyer;
 import org.blockchain_monitoring.api.InfluxDestroyerException;
 import org.blockchain_monitoring.api.InfluxSearcher;
@@ -13,11 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 public class MonitoringDB {
@@ -45,11 +45,11 @@ public class MonitoringDB {
     public void writePeerInfo(PeerInfo peerInfo) {
         try {
 
-            log.info("MonitoringDB.writePeerInfo");
+            log.debug("MonitoringDB.writePeerInfo");
             if (peerInfo.getName() == null || peerInfo.getName().isEmpty() || peerInfo.getStatus() == null) {
                 throw new IllegalArgumentException("peerId and peerStatus can't be null");
             }
-            log.info("peerId = [" + peerInfo.getName() + "], chaincodInfoList = [" + peerInfo.getChaincodInfoList() + "], channelList = [" + peerInfo.getChannelList() + "], peerStatus = [" + peerInfo.getStatus() + "]");
+            log.debug("peerId = [" + peerInfo.getName() + "], chaincodInfoList = [" + peerInfo.getChaincodInfoList() + "], channelList = [" + peerInfo.getChannelList() + "], peerStatus = [" + peerInfo.getStatus() + "]");
 
             final HashMap<String, String> tags = new HashMap<String, String>() {{
                 put(TAG_PEER, peerInfo.getName());
