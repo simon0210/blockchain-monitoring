@@ -1,6 +1,5 @@
 [Blockchain Monitoring](http://blockchain-monitoring.org)
 ================
-## version '1.6-1.0.0-alpha2'
 
 
 **Continuous integration:** [![Build Status](https://travis-ci.org/blockchain-monitoring/blockchain-monitoring.svg?branch=master)](https://travis-ci.org/blockchain-monitoring/blockchain-monitoring)
@@ -29,95 +28,69 @@ services:
     container_name: blockchain-monitoring
     image: blockchainmonitoring/blockchain-monitoring:latest
     volumes:
+      - $CERTS_ADMIN:/opt/finline/certs/admin/:rw
       - $FABRIC_NET_CONFIG:/etc/conf/net-config.yaml
+#      if you want customize configuration grafana or influxdb
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf
+      - ./config/grafana/grafana.ini:/etc/grafana/grafana.ini
+    environment:
+#     SCHEDULED_TASKS_DELAY - defaule is 1000 milliseconds
+      SCHEDULED_TASKS_DELAY: 10000
+#     TIME_EVENT_LIFETIME - defaule is 1 hour
+      TIME_EVENT_LIFETIME: "00:01:00"
     ports:
       - "3000:3000"
       - "8086:8086"
+      - "5006:5005" #debug port
 ```
 and net-config.yaml file:
 ```yaml
 organisations:
 - name: 'foo'
+  msp: 'foo'
+  member:
+    login: 'foomember'
+    password: 'member'
   ca:
-    name: 'ca-foo'
+    name: 'cafoo'
     address: 'http://172.25.0.177:7054'
-  enroll:
-    login: 'fadmin'
-    pass: 'foo'
-    msp: 'foo'
   peers:
     - name: 'peer-foo'
       address: 'grpc://172.25.0.104:7051'
+      admin:
+        login: 'fooadmin'
+        privkey: /opt/blockchain-monitoring/certs/admin/foo/foo-admin-key.pem
+        cert:    /opt/blockchain-monitoring/certs/admin/foo/foo-admin-signed.pem
 
     - name: 'peer-foo-02'
       address: 'grpc://172.25.0.105:7051'
+      admin:
+        login: 'fooadmin2'
+        privkey: /opt/blockchain-monitoring/certs/admin/foo-02/foo-02-admin-key.pem
+        cert:    /opt/blockchain-monitoring/certs/admin/foo-02/foo-02-admin-signed.pem
 
     - name: 'peer-foo-03'
       address: 'grpc://172.25.0.106:7051'
+      admin:
+        login: 'fooadmin3'
+        privkey: /opt/blockchain-monitoring/certs/admin/foo-03/foo-03-admin-key.pem
+        cert:    /opt/blockchain-monitoring/certs/admin/foo-03/foo-03-admin-signed.pem
 
 - name: 'bar'
+  msp: 'bar'
+  member:
+    login: 'barmember'
+    password: 'member'
   ca:
-    name: 'ca-foo'
-    address: 'http://ca-foo:7054'
-  enroll:
-    login: 'badmin'
-    pass: 'bar'
-    msp: 'bar'
+    name: 'cabar'
+    address: 'http://172.25.0.177:7054'
   peers:
     - name: 'peer-bar'
       address: 'grpc://172.25.0.107:7051'
-
-channels:
-- name: 'pubfoochan'
-  msp:
-  - 'foo'
-  - 'bar'
-
-  endorsers:
-  - name: 'peer-foo'
-    msp: 'foo'
-    address: 'grpc://172.25.0.104:7051'
-
-  - name: 'peer-foo-02'
-    msp: 'foo'
-    address: 'grpc://172.25.0.105:7051'
-
-  - name: 'peer-foo-03'
-    msp: 'foo'
-    address: 'grpc://172.25.0.106:7051'
-
-  - name: 'peer-bar'
-    msp: 'bar'
-    address: 'grpc://172.25.0.107:7051'
-
-  orderers:
-  - name: 'foo-orderer'
-    msp:
-    - 'foo'
-    - 'bar'
-    address: 'grpc://172.25.0.102:7050'
-
-  events:
-  - name: 'ev-peer-foo'
-    msp: 'foo'
-    address: 'grpc://172.25.0.104:7053'
-
-  - name: 'ev-peer-foo-02'
-    msp: 'foo'
-    address: 'grpc://172.25.0.105:7053'
-
-  - name: 'ev-peer-foo-03'
-    msp: 'foo'
-    address: 'grpc://172.25.0.106:7053'
-
-  - name: 'ev-peer-bar'
-    msp: 'bar'
-    address: 'grpc://172.25.0.107:7053'
-
-  chaincodes:
-  - name: 'prettycode'
-    path: 'github.xyz/thebestcode/prettycode'
-    version: '1.0'
+      admin:
+        login: 'baradmin'
+        privkey: /opt/blockchain-monitoring/certs/admin/bar/bar-admin-key.pem
+        cert:    /opt/blockchain-monitoring/certs/admin/bar/bar-admin-signed.pem
 ```
 
 This file describes fabric network configuration and contains two main sections: organization and channels.

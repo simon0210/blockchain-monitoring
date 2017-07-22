@@ -17,6 +17,8 @@ services:
     environment:
 #     SCHEDULED_TASKS_DELAY - defaule is 1000 milliseconds
       SCHEDULED_TASKS_DELAY: 10000
+#     TIME_EVENT_LIFETIME - defaule is 1 hour
+      TIME_EVENT_LIFETIME: "00:01:00"
     ports:
       - "3000:3000"
       - "8086:8086"
