@@ -31,7 +31,7 @@ public class ScheduledTasks {
     @Autowired
     public FlyNet flyNet;
 
-    @Value("${TIME_EVENT_LIFETIME:00:01:00}")
+    @Value("${TIME_EVENT_LIFETIME:01:00:00}")
     private String envTimeEventLifetime;
 
     @Autowired
