@@ -10,6 +10,8 @@ services:
     image: blockchainmonitoring/blockchain-monitoring:latest
     volumes:
       - $CERTS_ADMIN:/opt/blockchain-monitoring/certs/admin/:rw
+#      this is path where we store our certificates
+#      and use for in our network-config.yaml
       - $FABRIC_NET_CONFIG:/etc/conf/net-config.yaml
 #      if you want customize configuration grafana or influxdb
 #      - ./influxdb.conf:/etc/influxdb/influxdb.conf
