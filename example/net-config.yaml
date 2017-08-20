@@ -1,0 +1,79 @@
+organisations:
+- name: 'Org1'
+  msp: 'Org1MSP'
+  member:
+    login: 'admin'
+    password: 'adminpw'
+  ca:
+    name: 'ca.org1.example.com'
+    address: 'http://ca.org1.example.com:7054'
+  peers:
+    - name: 'peer0.org1.example.com'
+      address: 'grpc://peer0.org1.example.com:7051'
+      admin:
+        login: 'admin'
+        privkey: /opt/blockchain-monitoring/certs/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/11f9570f9467eeb7c3d21a6377eda40ead0046527d8cce0df2e48e9f36c45ef0_sk
+        cert:    /opt/blockchain-monitoring/certs/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+
+    - name: 'peer1.org1.example.com'
+      address: 'grpc://peer1.org1.example.com:7051'
+      admin:
+        login: 'admin'
+        privkey: /opt/blockchain-monitoring/certs/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/11f9570f9467eeb7c3d21a6377eda40ead0046527d8cce0df2e48e9f36c45ef0_sk
+        cert:    /opt/blockchain-monitoring/certs/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+- name: 'Org2'
+  msp: 'Org2MSP'
+  member:
+    login: 'admin'
+    password: 'admin'
+  ca:
+    name: 'ca.org2.example.com'
+    address: 'http://ca.org2.example.com:7054'
+  peers:
+    - name: 'peer0.org2.example.com'
+      address: 'grpc://peer0.org2.example.com:7051'
+      admin:
+        login: 'admin'
+        privkey: /opt/blockchain-monitoring/certs/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/ba346e88f1ffc827f73798b17679245907c515761ae1c55b1cdb3486963ad2b6_sk
+        cert:    /opt/blockchain-monitoring/certs/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem
+
+    - name: 'peer1.org2.example.com'
+      address: 'grpc://peer1.org2.example.com:7051'
+      admin:
+        login: 'admin'
+        privkey: /opt/blockchain-monitoring/certs/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/ba346e88f1ffc827f73798b17679245907c515761ae1c55b1cdb3486963ad2b6_sk
+        cert:    /opt/blockchain-monitoring/certs/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem
+channels:
+- name: 'mychannel'
+  msp:
+  - 'Org1MSP'
+  - 'Org2MSP'
+
+  endorsers:
+  - name: 'peer0.org1.example.com'
+    msp: 'Org1MSP'
+    address: 'grpc://peer0.org1.example.com:7051'
+
+  - name: 'peer1.org1.example.com'
+    msp: 'Org1MSP'
+    address: 'grpc://peer1.org1.example.com:7051'
+
+  - name: 'peer0.org2.example.com'
+    msp: 'Org2MSP'
+    address: 'grpc://peer0.org2.example.com:7051'
+
+  - name: 'peer1.org2.example.com'
+    msp: 'Org2MSP'
+    address: 'grpc://peer1.org2.example.com:7051'
+
+  orderers:
+  - name: 'orderer.example.com'
+    msp:
+    - 'Org1MSP'
+    - 'Org2MSP'
+    address: 'grpc://orderer.example.com:7050'
+
+  chaincodes:
+  - name: 'mycc'
+    path: 'github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02'
+    version: '1.0'
