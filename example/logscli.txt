@@ -1,0 +1,379 @@
+
+ ____    _____      _      ____    _____           _____   ____    _____ 
+/ ___|  |_   _|    / \    |  _ \  |_   _|         | ____| |___ \  | ____|
+\___ \    | |     / _ \   | |_) |   | |    _____  |  _|     __) | |  _|  
+ ___) |   | |    / ___ \  |  _ <    | |   |_____| | |___   / __/  | |___ 
+|____/    |_|   /_/   \_\ |_| \_\   |_|           |_____| |_____| |_____|
+
+Channel name : mychannel
+Creating channel...
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+2017-08-20 17:05:36.596 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:36.596 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:36.596 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:36.617 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.617 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:05:36.619 UTC [channelCmd] InitCmdFactory -> INFO 006[0m Endorser and orderer connections initialized
+[36m2017-08-20 17:05:36.619 UTC [msp] GetLocalMSP -> DEBU 007[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.619 UTC [msp] GetDefaultSigningIdentity -> DEBU 008[0m Obtaining default signing identity
+[36m2017-08-20 17:05:36.620 UTC [msp] GetLocalMSP -> DEBU 009[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.620 UTC [msp] GetDefaultSigningIdentity -> DEBU 00a[0m Obtaining default signing identity
+[36m2017-08-20 17:05:36.620 UTC [msp/identity] Sign -> DEBU 00b[0m Sign: plaintext: 0A88060A074F7267314D535012FC052D...53616D706C65436F6E736F727469756D 
+[36m2017-08-20 17:05:36.620 UTC [msp/identity] Sign -> DEBU 00c[0m Sign: digest: 2F604646376515CD2385427286678640CC3548FEE0DA5CB9E73FB3B79ECE3830 
+[36m2017-08-20 17:05:36.620 UTC [msp] GetLocalMSP -> DEBU 00d[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.620 UTC [msp] GetDefaultSigningIdentity -> DEBU 00e[0m Obtaining default signing identity
+[36m2017-08-20 17:05:36.620 UTC [msp] GetLocalMSP -> DEBU 00f[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.620 UTC [msp] GetDefaultSigningIdentity -> DEBU 010[0m Obtaining default signing identity
+[36m2017-08-20 17:05:36.620 UTC [msp/identity] Sign -> DEBU 011[0m Sign: plaintext: 0ABF060A1508021A0608E082E7CC0522...62E1C780CECD15D9D86DBAB17F3A27C1 
+[36m2017-08-20 17:05:36.620 UTC [msp/identity] Sign -> DEBU 012[0m Sign: digest: 1FBBA6BA743552E4F34D5127FB419529069002284F2643AE521D12A7B74A5E30 
+[36m2017-08-20 17:05:36.713 UTC [msp] GetLocalMSP -> DEBU 013[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.713 UTC [msp] GetDefaultSigningIdentity -> DEBU 014[0m Obtaining default signing identity
+[36m2017-08-20 17:05:36.713 UTC [msp] GetLocalMSP -> DEBU 015[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.713 UTC [msp] GetDefaultSigningIdentity -> DEBU 016[0m Obtaining default signing identity
+[36m2017-08-20 17:05:36.713 UTC [msp/identity] Sign -> DEBU 017[0m Sign: plaintext: 0ABF060A1508021A0608E082E7CC0522...27D49311424E12080A021A0012021A00 
+[36m2017-08-20 17:05:36.713 UTC [msp/identity] Sign -> DEBU 018[0m Sign: digest: 286CB48F51B640B2FE356DBBEA96C4C77B54620303B39D0D513453B2A49BC76D 
+[36m2017-08-20 17:05:36.720 UTC [channelCmd] readBlock -> DEBU 019[0m Got status:*orderer.DeliverResponse_Status 
+[36m2017-08-20 17:05:36.720 UTC [msp] GetLocalMSP -> DEBU 01a[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.720 UTC [msp] GetDefaultSigningIdentity -> DEBU 01b[0m Obtaining default signing identity
+2017-08-20 17:05:36.720 UTC [channelCmd] InitCmdFactory -> INFO 01c[0m Endorser and orderer connections initialized
+[36m2017-08-20 17:05:36.921 UTC [msp] GetLocalMSP -> DEBU 01d[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.921 UTC [msp] GetDefaultSigningIdentity -> DEBU 01e[0m Obtaining default signing identity
+[36m2017-08-20 17:05:36.921 UTC [msp] GetLocalMSP -> DEBU 01f[0m Returning existing local MSP
+[36m2017-08-20 17:05:36.921 UTC [msp] GetDefaultSigningIdentity -> DEBU 020[0m Obtaining default signing identity
+[36m2017-08-20 17:05:36.921 UTC [msp/identity] Sign -> DEBU 021[0m Sign: plaintext: 0ABF060A1508021A0608E082E7CC0522...823433CD2EEE12080A021A0012021A00 
+[36m2017-08-20 17:05:36.921 UTC [msp/identity] Sign -> DEBU 022[0m Sign: digest: EB8CB8956C86B78FDDE2313C47DBBEC61608EAE9A7E84BFD0BE9BA9BF8F747EF 
+[36m2017-08-20 17:05:36.924 UTC [channelCmd] readBlock -> DEBU 023[0m Received block:0 
+2017-08-20 17:05:36.924 UTC [main] main -> INFO 024[0m Exiting.....
+===================== Channel "mychannel" is created successfully ===================== 
+
+Having all peers join the channel...
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+2017-08-20 17:05:37.004 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:37.007 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:37.009 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:37.073 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:37.073 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:05:37.074 UTC [channelCmd] InitCmdFactory -> INFO 006[0m Endorser and orderer connections initialized
+[36m2017-08-20 17:05:37.074 UTC [msp/identity] Sign -> DEBU 007[0m Sign: plaintext: 0A85070A5B08011A0B08E182E7CC0510...AC7AAA75C6361A080A000A000A000A00 
+[36m2017-08-20 17:05:37.074 UTC [msp/identity] Sign -> DEBU 008[0m Sign: digest: EA2BF65FEFE84990364A27EEA39908675A9D4E16CCC7F04041E82967EB55C46C 
+2017-08-20 17:05:37.110 UTC [channelCmd] executeJoin -> INFO 009[0m Peer joined the channel!
+2017-08-20 17:05:37.110 UTC [main] main -> INFO 00a[0m Exiting.....
+===================== PEER0 joined on the channel "mychannel" ===================== 
+
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer1.org1.example.com:7051
+2017-08-20 17:05:39.164 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:39.164 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:39.165 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:39.186 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:39.186 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:05:39.188 UTC [channelCmd] InitCmdFactory -> INFO 006[0m Endorser and orderer connections initialized
+[36m2017-08-20 17:05:39.188 UTC [msp/identity] Sign -> DEBU 007[0m Sign: plaintext: 0A85070A5B08011A0B08E382E7CC0510...AC7AAA75C6361A080A000A000A000A00 
+[36m2017-08-20 17:05:39.188 UTC [msp/identity] Sign -> DEBU 008[0m Sign: digest: 19FFF29D67FADD13388786577CF3AC73C97E26286E6B62F7A2EB0BB469AFB02B 
+2017-08-20 17:05:39.208 UTC [channelCmd] executeJoin -> INFO 009[0m Peer joined the channel!
+2017-08-20 17:05:39.208 UTC [main] main -> INFO 00a[0m Exiting.....
+===================== PEER1 joined on the channel "mychannel" ===================== 
+
+CORE_PEER_LOCALMSPID=Org2MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org2.example.com:7051
+2017-08-20 17:05:41.298 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:41.299 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:41.300 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:41.337 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:41.337 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:05:41.339 UTC [channelCmd] InitCmdFactory -> INFO 006[0m Endorser and orderer connections initialized
+[36m2017-08-20 17:05:41.339 UTC [msp/identity] Sign -> DEBU 007[0m Sign: plaintext: 0A86070A5C08011A0C08E582E7CC0510...AC7AAA75C6361A080A000A000A000A00 
+[36m2017-08-20 17:05:41.339 UTC [msp/identity] Sign -> DEBU 008[0m Sign: digest: B5EC888AA48A30C75BD4727835DDEBAB5D0620F60AAE160681BBFE133224199A 
+2017-08-20 17:05:41.389 UTC [channelCmd] executeJoin -> INFO 009[0m Peer joined the channel!
+2017-08-20 17:05:41.389 UTC [main] main -> INFO 00a[0m Exiting.....
+===================== PEER2 joined on the channel "mychannel" ===================== 
+
+CORE_PEER_LOCALMSPID=Org2MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer1.org2.example.com:7051
+2017-08-20 17:05:43.448 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:43.449 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:43.449 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:43.470 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:43.470 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:05:43.470 UTC [channelCmd] InitCmdFactory -> INFO 006[0m Endorser and orderer connections initialized
+[36m2017-08-20 17:05:43.471 UTC [msp/identity] Sign -> DEBU 007[0m Sign: plaintext: 0A86070A5C08011A0C08E782E7CC0510...AC7AAA75C6361A080A000A000A000A00 
+[36m2017-08-20 17:05:43.471 UTC [msp/identity] Sign -> DEBU 008[0m Sign: digest: 29FA3191164A99B40F534EDC04B420CB9701917D4FD3EBBE581252EAD4CFD4C4 
+2017-08-20 17:05:43.823 UTC [channelCmd] executeJoin -> INFO 009[0m Peer joined the channel!
+2017-08-20 17:05:43.823 UTC [main] main -> INFO 00a[0m Exiting.....
+===================== PEER3 joined on the channel "mychannel" ===================== 
+
+Updating anchor peers for org1...
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+2017-08-20 17:05:45.903 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:45.904 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:45.904 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:45.924 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:45.924 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:05:45.926 UTC [channelCmd] InitCmdFactory -> INFO 006[0m Endorser and orderer connections initialized
+[36m2017-08-20 17:05:45.927 UTC [msp] GetLocalMSP -> DEBU 007[0m Returning existing local MSP
+[36m2017-08-20 17:05:45.927 UTC [msp] GetDefaultSigningIdentity -> DEBU 008[0m Obtaining default signing identity
+[36m2017-08-20 17:05:45.927 UTC [msp] GetLocalMSP -> DEBU 009[0m Returning existing local MSP
+[36m2017-08-20 17:05:45.927 UTC [msp] GetDefaultSigningIdentity -> DEBU 00a[0m Obtaining default signing identity
+[36m2017-08-20 17:05:45.927 UTC [msp/identity] Sign -> DEBU 00b[0m Sign: plaintext: 0A88060A074F7267314D535012FC052D...731200220B0A07577269746572731200 
+[36m2017-08-20 17:05:45.927 UTC [msp/identity] Sign -> DEBU 00c[0m Sign: digest: CD557656EF4CFE31917FC92AB979C745A5248F85DDF1F92757D6D082C1BFA517 
+[36m2017-08-20 17:05:45.928 UTC [msp] GetLocalMSP -> DEBU 00d[0m Returning existing local MSP
+[36m2017-08-20 17:05:45.928 UTC [msp] GetDefaultSigningIdentity -> DEBU 00e[0m Obtaining default signing identity
+[36m2017-08-20 17:05:45.928 UTC [msp] GetLocalMSP -> DEBU 00f[0m Returning existing local MSP
+[36m2017-08-20 17:05:45.928 UTC [msp] GetDefaultSigningIdentity -> DEBU 010[0m Obtaining default signing identity
+[36m2017-08-20 17:05:45.928 UTC [msp/identity] Sign -> DEBU 011[0m Sign: plaintext: 0ABF060A1508021A0608E982E7CC0522...BB01FC82D1A84353F2933A228C04ACCF 
+[36m2017-08-20 17:05:45.928 UTC [msp/identity] Sign -> DEBU 012[0m Sign: digest: 9FA4B7A1EC9960ACAA807DDF0145E54545E0C485E9F8B55E4161859965238031 
+2017-08-20 17:05:45.951 UTC [main] main -> INFO 013[0m Exiting.....
+===================== Anchor peers for org "Org1MSP" on "mychannel" is updated successfully ===================== 
+
+Updating anchor peers for org2...
+CORE_PEER_LOCALMSPID=Org2MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org2.example.com:7051
+2017-08-20 17:05:51.007 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:51.008 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:51.008 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:51.027 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:51.027 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:05:51.029 UTC [channelCmd] InitCmdFactory -> INFO 006[0m Endorser and orderer connections initialized
+[36m2017-08-20 17:05:51.030 UTC [msp] GetLocalMSP -> DEBU 007[0m Returning existing local MSP
+[36m2017-08-20 17:05:51.030 UTC [msp] GetDefaultSigningIdentity -> DEBU 008[0m Obtaining default signing identity
+[36m2017-08-20 17:05:51.030 UTC [msp] GetLocalMSP -> DEBU 009[0m Returning existing local MSP
+[36m2017-08-20 17:05:51.030 UTC [msp] GetDefaultSigningIdentity -> DEBU 00a[0m Obtaining default signing identity
+[36m2017-08-20 17:05:51.030 UTC [msp/identity] Sign -> DEBU 00b[0m Sign: plaintext: 0A88060A074F7267324D535012FC052D...72731200220A0A0641646D696E731200 
+[36m2017-08-20 17:05:51.030 UTC [msp/identity] Sign -> DEBU 00c[0m Sign: digest: CF6B9A3BC10B6B33F366B1F747D6DEA31369F420A8A74BB346A0D3A48058F440 
+[36m2017-08-20 17:05:51.030 UTC [msp] GetLocalMSP -> DEBU 00d[0m Returning existing local MSP
+[36m2017-08-20 17:05:51.030 UTC [msp] GetDefaultSigningIdentity -> DEBU 00e[0m Obtaining default signing identity
+[36m2017-08-20 17:05:51.030 UTC [msp] GetLocalMSP -> DEBU 00f[0m Returning existing local MSP
+[36m2017-08-20 17:05:51.030 UTC [msp] GetDefaultSigningIdentity -> DEBU 010[0m Obtaining default signing identity
+[36m2017-08-20 17:05:51.030 UTC [msp/identity] Sign -> DEBU 011[0m Sign: plaintext: 0ABF060A1508021A0608EF82E7CC0522...02C572E01DA9C86C3F672110012ADC47 
+[36m2017-08-20 17:05:51.030 UTC [msp/identity] Sign -> DEBU 012[0m Sign: digest: 650380264C1216DE26B7977AFDDE36CBED2CF34A6B969EBD938B69E557683A35 
+2017-08-20 17:05:51.046 UTC [main] main -> INFO 013[0m Exiting.....
+===================== Anchor peers for org "Org2MSP" on "mychannel" is updated successfully ===================== 
+
+Installing chaincode on org1/peer0...
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+2017-08-20 17:05:56.113 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:56.114 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:56.115 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:56.147 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:56.147 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+[36m2017-08-20 17:05:56.148 UTC [golang-platform] getCodeFromFS -> DEBU 006[0m getCodeFromFS github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02
+[36m2017-08-20 17:05:56.500 UTC [golang-platform] func1 -> DEBU 007[0m Discarding GOROOT package fmt
+[36m2017-08-20 17:05:56.500 UTC [golang-platform] func1 -> DEBU 008[0m Discarding provided package github.com/hyperledger/fabric/core/chaincode/shim
+[36m2017-08-20 17:05:56.500 UTC [golang-platform] func1 -> DEBU 009[0m Discarding provided package github.com/hyperledger/fabric/protos/peer
+[36m2017-08-20 17:05:56.500 UTC [golang-platform] func1 -> DEBU 00a[0m Discarding GOROOT package strconv
+[36m2017-08-20 17:05:56.500 UTC [golang-platform] func1 -> DEBU 00b[0m Discarding GOROOT package 
+[36m2017-08-20 17:05:56.501 UTC [golang-platform] GetDeploymentPayload -> DEBU 00c[0m done
+[36m2017-08-20 17:05:56.502 UTC [msp/identity] Sign -> DEBU 00d[0m Sign: plaintext: 0A86070A5C08031A0C08F482E7CC0510...3C66FC330000FFFF7FCF700C001C0000 
+[36m2017-08-20 17:05:56.502 UTC [msp/identity] Sign -> DEBU 00e[0m Sign: digest: DF1F3A90422B8A287792432A6BD5FB5E87D8E70E5308B965A43DCF4D92CFC2F5 
+[36m2017-08-20 17:05:56.505 UTC [chaincodeCmd] install -> DEBU 00f[0m Installed remotely response:<status:200 payload:"OK" > 
+2017-08-20 17:05:56.505 UTC [main] main -> INFO 010[0m Exiting.....
+===================== Chaincode is installed on remote peer PEER0 ===================== 
+
+Install chaincode on org1/peer1...
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer1.org1.example.com:7051
+2017-08-20 17:05:56.554 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:56.554 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:56.554 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:56.575 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:56.575 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+[36m2017-08-20 17:05:56.575 UTC [golang-platform] getCodeFromFS -> DEBU 006[0m getCodeFromFS github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02
+[36m2017-08-20 17:05:56.630 UTC [golang-platform] func1 -> DEBU 007[0m Discarding GOROOT package fmt
+[36m2017-08-20 17:05:56.630 UTC [golang-platform] func1 -> DEBU 008[0m Discarding provided package github.com/hyperledger/fabric/core/chaincode/shim
+[36m2017-08-20 17:05:56.630 UTC [golang-platform] func1 -> DEBU 009[0m Discarding provided package github.com/hyperledger/fabric/protos/peer
+[36m2017-08-20 17:05:56.630 UTC [golang-platform] func1 -> DEBU 00a[0m Discarding GOROOT package strconv
+[36m2017-08-20 17:05:56.630 UTC [golang-platform] func1 -> DEBU 00b[0m Discarding GOROOT package 
+[36m2017-08-20 17:05:56.631 UTC [golang-platform] GetDeploymentPayload -> DEBU 00c[0m done
+[36m2017-08-20 17:05:56.632 UTC [msp/identity] Sign -> DEBU 00d[0m Sign: plaintext: 0A86070A5C08031A0C08F482E7CC0510...3C66FC330000FFFF7FCF700C001C0000 
+[36m2017-08-20 17:05:56.632 UTC [msp/identity] Sign -> DEBU 00e[0m Sign: digest: D155562D09D062707FFD64FCD1AB2C7518744D29DC9A14DC1F4BEBC47E0B163C 
+[36m2017-08-20 17:05:56.636 UTC [chaincodeCmd] install -> DEBU 00f[0m Installed remotely response:<status:200 payload:"OK" > 
+2017-08-20 17:05:56.636 UTC [main] main -> INFO 010[0m Exiting.....
+===================== Chaincode is installed on remote peer PEER1 ===================== 
+
+Install chaincode on org2/peer0...
+CORE_PEER_LOCALMSPID=Org2MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org2.example.com:7051
+2017-08-20 17:05:56.686 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:56.687 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:56.687 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:56.708 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:56.708 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+[36m2017-08-20 17:05:56.708 UTC [golang-platform] getCodeFromFS -> DEBU 006[0m getCodeFromFS github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02
+[36m2017-08-20 17:05:56.763 UTC [golang-platform] func1 -> DEBU 007[0m Discarding GOROOT package fmt
+[36m2017-08-20 17:05:56.763 UTC [golang-platform] func1 -> DEBU 008[0m Discarding provided package github.com/hyperledger/fabric/core/chaincode/shim
+[36m2017-08-20 17:05:56.763 UTC [golang-platform] func1 -> DEBU 009[0m Discarding provided package github.com/hyperledger/fabric/protos/peer
+[36m2017-08-20 17:05:56.763 UTC [golang-platform] func1 -> DEBU 00a[0m Discarding GOROOT package strconv
+[36m2017-08-20 17:05:56.763 UTC [golang-platform] func1 -> DEBU 00b[0m Discarding GOROOT package 
+[36m2017-08-20 17:05:56.764 UTC [golang-platform] GetDeploymentPayload -> DEBU 00c[0m done
+[36m2017-08-20 17:05:56.765 UTC [msp/identity] Sign -> DEBU 00d[0m Sign: plaintext: 0A86070A5C08031A0C08F482E7CC0510...3C66FC330000FFFF7FCF700C001C0000 
+[36m2017-08-20 17:05:56.765 UTC [msp/identity] Sign -> DEBU 00e[0m Sign: digest: D2760925AEDEB0A2CEECC9E363558A989BA5369F30886D704A1E67684E94A009 
+[36m2017-08-20 17:05:56.771 UTC [chaincodeCmd] install -> DEBU 00f[0m Installed remotely response:<status:200 payload:"OK" > 
+2017-08-20 17:05:56.772 UTC [main] main -> INFO 010[0m Exiting.....
+===================== Chaincode is installed on remote peer PEER2 ===================== 
+
+Install chaincode on org2/peer1...
+CORE_PEER_LOCALMSPID=Org2MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer1.org2.example.com:7051
+2017-08-20 17:05:56.822 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:56.823 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:56.824 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:56.844 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:56.844 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+[36m2017-08-20 17:05:56.844 UTC [golang-platform] getCodeFromFS -> DEBU 006[0m getCodeFromFS github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02
+[36m2017-08-20 17:05:56.898 UTC [golang-platform] func1 -> DEBU 007[0m Discarding GOROOT package fmt
+[36m2017-08-20 17:05:56.898 UTC [golang-platform] func1 -> DEBU 008[0m Discarding provided package github.com/hyperledger/fabric/core/chaincode/shim
+[36m2017-08-20 17:05:56.898 UTC [golang-platform] func1 -> DEBU 009[0m Discarding provided package github.com/hyperledger/fabric/protos/peer
+[36m2017-08-20 17:05:56.898 UTC [golang-platform] func1 -> DEBU 00a[0m Discarding GOROOT package strconv
+[36m2017-08-20 17:05:56.898 UTC [golang-platform] func1 -> DEBU 00b[0m Discarding GOROOT package 
+[36m2017-08-20 17:05:56.899 UTC [golang-platform] GetDeploymentPayload -> DEBU 00c[0m done
+[36m2017-08-20 17:05:56.901 UTC [msp/identity] Sign -> DEBU 00d[0m Sign: plaintext: 0A86070A5C08031A0C08F482E7CC0510...3C66FC330000FFFF7FCF700C001C0000 
+[36m2017-08-20 17:05:56.901 UTC [msp/identity] Sign -> DEBU 00e[0m Sign: digest: 82683F2C46BEA15ADF749A02353A1E9381D2FE354AC396573B639C50C762B60A 
+[36m2017-08-20 17:05:56.904 UTC [chaincodeCmd] install -> DEBU 00f[0m Installed remotely response:<status:200 payload:"OK" > 
+2017-08-20 17:05:56.904 UTC [main] main -> INFO 010[0m Exiting.....
+===================== Chaincode is installed on remote peer PEER3 ===================== 
+
+Instantiating chaincode on org1/peer0...
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+2017-08-20 17:05:56.950 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:05:56.950 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/crls: no such file or directory]
+2017-08-20 17:05:56.951 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:05:56.971 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:05:56.971 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:05:56.972 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 006[0m Using default escc
+2017-08-20 17:05:56.972 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 007[0m Using default vscc
+[36m2017-08-20 17:05:56.973 UTC [msp/identity] Sign -> DEBU 008[0m Sign: plaintext: 0A91070A6708031A0C08F482E7CC0510...324D53500A04657363630A0476736363 
+[36m2017-08-20 17:05:56.973 UTC [msp/identity] Sign -> DEBU 009[0m Sign: digest: 2A1EDBD42C7C1DB3F6E2A5398B2AB368CCD606464B22C0FE3358E2409E6F11F9 
+[36m2017-08-20 17:06:07.925 UTC [msp/identity] Sign -> DEBU 00a[0m Sign: plaintext: 0A91070A6708031A0C08F482E7CC0510...C12FC26689164B0B547AE4D7EBC3970F 
+[36m2017-08-20 17:06:07.925 UTC [msp/identity] Sign -> DEBU 00b[0m Sign: digest: 50C91DC9ED694E1DE9712BD3F874AD5CC741ABB3DF1172FFF05F20286B4CED38 
+2017-08-20 17:06:07.928 UTC [main] main -> INFO 00c[0m Exiting.....
+===================== Chaincode Instantiation on PEER0 on channel 'mychannel' is successful ===================== 
+
+Instantiating chaincode on org1/peer1...
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer1.org1.example.com:7051
+2017-08-20 17:06:07.980 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:06:07.981 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/crls: no such file or directory]
+2017-08-20 17:06:07.981 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:06:08.006 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:06:08.006 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:06:08.007 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 006[0m Using default escc
+2017-08-20 17:06:08.007 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 007[0m Using default vscc
+[36m2017-08-20 17:06:08.007 UTC [msp/identity] Sign -> DEBU 008[0m Sign: plaintext: 0A90070A6608031A0B088083E7CC0510...324D53500A04657363630A0476736363 
+[36m2017-08-20 17:06:08.007 UTC [msp/identity] Sign -> DEBU 009[0m Sign: digest: BBAC24F6EC6ADCED041B0EA69B12DC55B95F57A08C4473487D9BDE6BDE897365 
+[36m2017-08-20 17:06:27.475 UTC [msp/identity] Sign -> DEBU 00a[0m Sign: plaintext: 0A90070A6608031A0B088083E7CC0510...5B4CE5CD5ECB6B595E5B7B433773521F 
+[36m2017-08-20 17:06:27.475 UTC [msp/identity] Sign -> DEBU 00b[0m Sign: digest: B0055A5B5B1CD4A41B00F973D624D8AFF43C0FD607CC766FC3237840D47DBDE6 
+2017-08-20 17:06:27.478 UTC [main] main -> INFO 00c[0m Exiting.....
+===================== Chaincode Instantiation on PEER1 on channel 'mychannel' is successful ===================== 
+
+Instantiating chaincode on org2/peer0...
+CORE_PEER_LOCALMSPID=Org2MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_ENABLED=false
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org2.example.com:7051
+2017-08-20 17:06:27.506 UTC [msp] getMspConfig -> INFO 001[0m intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts: no such file or directory]
+2017-08-20 17:06:27.507 UTC [msp] getMspConfig -> INFO 002[0m crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/crls: no such file or directory]
+2017-08-20 17:06:27.507 UTC [msp] getMspConfig -> INFO 003[0m MSP configuration file not found at [/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml]: [stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/config.yaml: no such file or directory]
+[36m2017-08-20 17:06:27.529 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2017-08-20 17:06:27.529 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+2017-08-20 17:06:27.530 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 006[0m Using default escc
+2017-08-20 17:06:27.530 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 007[0m Using default vscc
+[36m2017-08-20 17:06:27.530 UTC [msp/identity] Sign -> DEBU 008[0m Sign: plaintext: 0A91070A6708031A0C089383E7CC0510...324D53500A04657363630A0476736363 
+[36m2017-08-20 17:06:27.530 UTC [msp/identity] Sign -> DEBU 009[0m Sign: digest: FD85A96040C143CEB9FEE4F2EEEC5DACAC197B4F3FDD403B1D61D37D3C249A5C 
+Error: Error endorsing chaincode: rpc error: code = Unknown desc = chaincode error (status: 500, message: chaincode exists mycc)
+Usage:
+  peer chaincode instantiate [flags]
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+  -C, --chainID string             The chain on which this command should be executed (default "testchainid")
+  -c, --ctor string                Constructor message for the chaincode in JSON format (default "{}")
+  -E, --escc string                The name of the endorsement system chaincode to be used for this chaincode
+  -l, --lang string                Language the chaincode is written in (default "golang")
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -n, --name string                Name of the chaincode
+  -o, --orderer string             Ordering service endpoint
+  -p, --path string                Path to chaincode
+  -P, --policy string              The endorsement policy associated to this chaincode
+      --test.coverprofile string   Done (default "coverage.cov")
+  -t, --tid string                 Name of a custom ID generation algorithm (hashing and decoding) e.g. sha256base64
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -u, --username string            Username for chaincode operations when security is enabled
+  -v, --version string             Version of the chaincode specified in install/instantiate/upgrade commands
+  -V, --vscc string                The name of the verification system chaincode to be used for this chaincode
+
+!!!!!!!!!!!!!!! Chaincode instantiation on PEER2 on channel 'mychannel' failed !!!!!!!!!!!!!!!!
+================== ERROR !!! FAILED to execute End-2-End Scenario ==================
+
