@@ -11,14 +11,14 @@ organisations:
     - name: 'peer0.org1.example.com'
       address: 'grpc://peer0.org1.example.com:7051'
       admin:
-        login: 'admin'
+        login: 'Admin@org1.example.com'
         privkey: /opt/blockchain-monitoring/certs/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/11f9570f9467eeb7c3d21a6377eda40ead0046527d8cce0df2e48e9f36c45ef0_sk
         cert:    /opt/blockchain-monitoring/certs/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
 
     - name: 'peer1.org1.example.com'
       address: 'grpc://peer1.org1.example.com:7051'
       admin:
-        login: 'admin'
+        login: 'Admin@org1.example.com'
         privkey: /opt/blockchain-monitoring/certs/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/11f9570f9467eeb7c3d21a6377eda40ead0046527d8cce0df2e48e9f36c45ef0_sk
         cert:    /opt/blockchain-monitoring/certs/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
 - name: 'Org2'
@@ -33,14 +33,14 @@ organisations:
     - name: 'peer0.org2.example.com'
       address: 'grpc://peer0.org2.example.com:7051'
       admin:
-        login: 'admin'
+        login: 'Admin@org2.example.com'
         privkey: /opt/blockchain-monitoring/certs/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/ba346e88f1ffc827f73798b17679245907c515761ae1c55b1cdb3486963ad2b6_sk
         cert:    /opt/blockchain-monitoring/certs/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem
 
     - name: 'peer1.org2.example.com'
       address: 'grpc://peer1.org2.example.com:7051'
       admin:
-        login: 'admin'
+        login: 'Admin@org2.example.com'
         privkey: /opt/blockchain-monitoring/certs/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/ba346e88f1ffc827f73798b17679245907c515761ae1c55b1cdb3486963ad2b6_sk
         cert:    /opt/blockchain-monitoring/certs/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem
 channels:
