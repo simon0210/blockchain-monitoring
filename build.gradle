@@ -42,7 +42,7 @@ dependencies {
     compile "commons-logging:commons-logging:1.2"
     compile "org.blockchain_monitoring:blockchain-monitoring-api:2.0.5"
     compile "org.blockchain_monitoring:fly-client-spring:2.0.26"
-    compile "org.blockchain_monitoring:fly-client:2.0.25"
+    compile "org.blockchain_monitoring:fly-client:2.0.70"
 }
 
 apply plugin: 'docker'
