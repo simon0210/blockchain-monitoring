@@ -55,7 +55,7 @@ public class OrganisationMetricWriter implements Consumer<FlyNet.Organization> {
 
                 final Collection<Query.ChaincodeInfo> installedChaincodes = flyClient.queryInstalledChaincodes(admin.getLogin(), peer);
                 chaincodeInfoList.addAll(installedChaincodes);
-                final Set<String> channels = flyClient.queryChannels(peer);
+                final Set<String> channels = flyClient.queryChannels(admin.getLogin(), peer);
                 channelList.addAll(channels);
                 status = PeerStatus.UP;
             } catch (Exception e) {

@@ -15,7 +15,7 @@ CLI_TIMEOUT="$3"
 COMPOSE_FILE=docker-compose.yaml
 
 function printHelp () {
-	echo "Usage: ./network_setup <up|down> <\$channel-name> <\$cli_timeout>.\nThe arguments must be in order."
+	echo "Usage: ./runApp.sh <up|down> <\$channel-name> <\$cli_timeout>.\nThe arguments must be in order."
 }
 
 function validateArgs () {
