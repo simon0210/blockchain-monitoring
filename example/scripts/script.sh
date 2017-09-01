@@ -175,7 +175,13 @@ chaincodeInvoke () {
 	# while 'peer chaincode' command can get the orderer endpoint from the peer (if join was successful),
 	# lets supply it directly as we know it using the "-o" option
 	if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
-		peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -c '{"Args":["invoke","a","b","10"]}' >&log.txt
+		if [ $2 -eq 0 ]; then
+			echo "Move from a to b on $PEER"
+			peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -c '{"Args":["invoke","a","b","10"]}' >&log.txt
+		else
+			echo "Move from b to a on $PEER"
+			peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -c '{"Args":["invoke","b","a","10"]}' >&log.txt
+		fi
 	else
 		peer chaincode invoke -o orderer.example.com:7050  --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -c '{"Args":["invoke","a","b","10"]}' >&log.txt
 	fi
@@ -224,6 +230,14 @@ chaincodeQuery 0 100
 #Invoke on chaincode on Peer0/Org1
 echo "Sending invoke transaction on org1/peer0..."
 chaincodeInvoke 0
+i=0;
+while true 
+do
+   i=$[$i+1];
+   echo "next $i";
+   chaincodeInvoke $(($i%4)) $(($i%2));
+
+done
 
 echo
 echo "===================== All GOOD, End-2-End execution completed ===================== "
