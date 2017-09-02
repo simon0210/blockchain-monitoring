@@ -142,7 +142,6 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 	if err != nil {
 		return shim.Error(err.Error())
 	}
-
 	return shim.Success(nil)
 }
 
@@ -160,6 +159,7 @@ func (t *SimpleChaincode) delete(stub shim.ChaincodeStubInterface, args []string
 		return shim.Error("Failed to delete state")
 	}
 
+	stub.SetEvent("Move", []byte(fmt.Sprintf("Move %d from %s to %s", X, args[0], args[1])))
 	return shim.Success(nil)
 }
 

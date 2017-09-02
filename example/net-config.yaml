@@ -49,6 +49,20 @@ channels:
   - 'Org1MSP'
   - 'Org2MSP'
 
+  events:
+  - name: 'eventPeer0Org1'
+    msp: 'Org1MSP'
+    address: 'grpc://peer0.org1.example.com:7053'
+  - name: 'eventPeer1Org1'
+    msp: 'Org1MSP'
+    address: 'grpc://peer1.org1.example.com:7053'
+  - name: 'eventPeer0Org2'
+    msp: 'Org2MSP'
+    address: 'grpc://peer0.org2.example.com:7053'
+  - name: 'eventPeer1Org2'
+    msp: 'Org2MSP'
+    address: 'grpc://peer1.org2.example.com:7053'
+
   endorsers:
   - name: 'peer0.org1.example.com'
     msp: 'Org1MSP'
