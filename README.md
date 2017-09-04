@@ -1,6 +1,8 @@
 [Blockchain Monitoring](http://blockchain-monitoring.org)
 ================
 
+[Team Dashboard](https://trello.com/invite/blockchainmonitoring/a789c404cf577dc31f7a1b56e82ccc9b)
+
 
 **Continuous integration:** [![Build Status](https://travis-ci.org/blockchain-monitoring/blockchain-monitoring.svg?branch=master)](https://travis-ci.org/blockchain-monitoring/blockchain-monitoring)
 
