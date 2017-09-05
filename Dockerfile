@@ -1,6 +1,6 @@
 FROM niaquinto/gradle
 
-MAINTAINER yury.andreev@ru.ibm.com, ruslan.kryukov@ru.ibm.com
+MAINTAINER andreevym@gmail.com
 
 ENV INFLUXDB_VERSION 1.2.3
 # TODO ENV PROMETHEUS_VERSION 1.6.2
