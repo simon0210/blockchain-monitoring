@@ -229,10 +229,10 @@ chaincodeQuery 0 100
 
 #Invoke on chaincode on Peer0/Org1
 echo "Sending invoke transaction on org1/peer0..."
-chaincodeInvoke 0
 i=0;
 while true 
 do
+   sleep 10
    i=$[$i+1];
    echo "next $i";
    chaincodeInvoke $(($i%4)) $(($i%2));
